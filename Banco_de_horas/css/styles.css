@@ -1,0 +1,44 @@
+.navbar-brand img{
+    max-width: 50px;
+}
+
+#main-tittle{
+    text-align: center;
+    margin: 15px auto;
+}
+
+#employ-table{
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* CREATE */
+#create-form,
+#edit-form,
+#view{
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-group{
+    margin-top: 5px;
+}
+
+#btn-create{
+    margin-top: 5px;
+}
+
+.delete-form{
+    display: inline-block;
+}
+
+.delete-btn{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+.delete-icon {
+    color: #BD2130;
+}
+
