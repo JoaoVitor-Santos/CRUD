@@ -50,7 +50,7 @@
      }
 
     //Volta para a HOME
-    header("Location:". $BASE_URL . "../index.php" );
+    header("Location:". $BASE_URL . "../home.php" );
 
   } else{
 

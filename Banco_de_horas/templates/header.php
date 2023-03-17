@@ -30,12 +30,12 @@
     <header>
         <!-- barra de navegação -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a href="<?= $BASE_URL ?>/index.php" class = "navbar-brand">
+            <a href="<?= $BASE_URL ?>/home.php" class = "navbar-brand">
                 <img src="<?= $BASE_URL ?>img/logo.jpg" alt="agenda">
             </a>
             
             <div class="navbar-nav">
-                <a class="nav-link" id = "home-link" href="<?= $BASE_URL ?>/index.php">Funcionários</a>
+                <a class="nav-link" id = "home-link" href="<?= $BASE_URL ?>/home.php">Funcionários</a>
                 <a class="nav-link" id = "home-link" href="<?= $BASE_URL ?>/create.php">Adicionar funcionário</a>
             </div>
             
