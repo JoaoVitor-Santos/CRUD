@@ -12,8 +12,8 @@
         <p><?= $employ['name'] ?></p>
       </div>
       <div id="view-group">
-        <label for="name"><strong>ID:</strong></label>
-        <p><?= $employ['id'] ?></p>
+        <label for="name"><strong>CPF:</strong></label>
+        <p><?= $employ['cpf'] ?></p>
       </div>
       <div id="view-group">
         <label for="name"><strong>Horas trabalhadas:</strong></label>

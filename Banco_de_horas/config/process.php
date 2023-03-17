@@ -13,36 +13,57 @@
 
       $name = $data['name'];
       $hours = $data['hours'];
+      $cpf = $data['cpf'];
+      $employ= $data['employ'];
+      $phone = $data['phone'];
+      $wage = $data['wage'];
+      $datestart = $data['datestart'];
+      $password = $data['password'];
       
-      $stmt = $conn->prepare("INSERT INTO hours(name, hours) VALUES (:name, :hours)");
+      $stmt = $conn->prepare("INSERT INTO employees(name, hours, cpf, employ, datestart, wage, phone) VALUES (:name, :hours, :cpf, :employ, :datestart, :wage, :phone)");
 
        
       $stmt->bindParam(":name", $name);
       $stmt->bindParam(":hours", $hours);
+      $stmt->bindParam(":employ", $employ);
+      $stmt->bindParam(":wage", $wage);
+      $stmt->bindParam(":cpf", $cpf);
+      $stmt->bindParam(":phone", $phone);
+      $stmt->bindParam(":datestart", $datestart);
+     
+      $stmt->execute();
+
+      //login
+      
+      $stmt = $conn->prepare("INSERT INTO users(cpf, password) VALUES (:cpf, :password)");
+
+       
+      $stmt->bindParam(":password", $password);
+      $stmt->bindParam(":cpf", $cpf);
      
       $stmt->execute();
 
     }elseif(($data['type'] === 'edit')){
 
      $name = $data['name'];
-     $id = $data['id'];
+     $cpf = $data['cpf'];
       
-     $stmt = $conn->prepare("UPDATE hours SET name = :name WHERE id = :id");
+     $stmt = $conn->prepare("UPDATE employees SET name = :name WHERE cpf = :cpf");
 
      $stmt->bindParam(":name", $name);
-     $stmt->bindParam(":id", $id);
+     $stmt->bindParam(":cpf", $cpf);
 
      $stmt->execute();
 
     }elseif(($data['type'] === 'delete')){
 
-      $id = $data["id"];
+      $cpf = $data["cpf"];
 
-      $query = "DELETE FROM hours WHERE id = :id";
+      $query = "DELETE FROM employees WHERE cpf = :cpf";
 
       $stmt = $conn->prepare($query);
 
-      $stmt->bindParam(":id", $id);
+      $stmt->bindParam(":cpf", $cpf);
 
       $stmt->execute();
 
@@ -55,20 +76,20 @@
   } else{
 
     //Puxa o id do funcionário selecionado ao clicar na lista
- $id;
+ $cpf;
  
  if(!empty($_GET)){
-   $id = $_GET["id"];
+   $cpf = $_GET["cpf"];
  }
 
  //Retorna o dado de um funcionário, nas outras páginas
- if(!empty($id)){
+ if(!empty($cpf)){
 
-   $query = "SELECT * FROM hours WHERE id = :id";
+   $query = "SELECT * FROM employees WHERE cpf = :cpf";
 
    $stmt = $conn->prepare($query);
 
-   $stmt->bindParam(":id", $id);
+   $stmt->bindParam(":cpf", $cpf);
 
    $stmt->execute();
 
@@ -77,7 +98,7 @@
  } else {
 
    //Aqui insere todos os dados do banco de dados no array $employees
-   $query = "SELECT * FROM hours";
+   $query = "SELECT * FROM employees";
 
    $stmt = $conn->prepare($query);
 

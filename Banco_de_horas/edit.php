@@ -7,7 +7,7 @@
   <h1 id="main-tittle">Funcionários</h1>
 
   <form action="<?= $BASE_URL ?>/config/process.php" method="POST" id="create-form">
-   <input type="hidden" name="id" value="<?= $employ['id'] ?>">
+   <input type="hidden" name="id" value="<?= $employ['cpf'] ?>">
    <input type="hidden" name="type" value="edit">
   <div class="form-group">
     <label for="name">Nome do Funcionário:</label>
