@@ -21,20 +21,21 @@
 </head>
 <body>
     <h1 id="main-tittle">Acesse seu pontuário</h1>
-    <form action="" method = "POST" id="create-form">
 
-        <div class="form-group">
-            <label for="">CPF</label>
-            <input type="text" name="cpf">
-        </div>
-        <div class="form-group">
-            <label for="">Senha</label>
-            <input type="password" name="password">
-        </div>
-        
-        <button type="submit" id="btn-create" class="btn btn-primary">Entrar</button>
-        
-    </form>
+
+
+    <form action="" method = "POST">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">CPF</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="cpf">
+    <div id="emailHelp" class="form-text">Digite seu cpf</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">senha</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+  </div>
+  <button type="submit" class="btn btn-primary">entrar</button>
+</form>
     
 </body>
 </html>

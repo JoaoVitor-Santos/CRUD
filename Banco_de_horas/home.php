@@ -25,8 +25,8 @@
             <td scope="row"><?= $employ["name"]?></td>
             <td scope="row"><?= $employ["hours"]?></td>
             <td class="actions">
-              <a href="<?= $BASE_URL ?>/view.php?id=<?= $employ["cpf"]?>"><i class="fas fa-eye check-icon"></i></a>
-              <a href="<?= $BASE_URL ?>/edit.php?id=<?= $employ["cpf"]?>"><i class="far fa-edit edit-icon"></i></a>  
+              <a href="<?= $BASE_URL ?>/view.php?cpf=<?= $employ["cpf"]?>"><i class="fas fa-eye check-icon"></i></a>
+              <a href="<?= $BASE_URL ?>/edit.php?cpf=<?= $employ["cpf"]?>"><i class="far fa-edit edit-icon"></i></a>  
               <form class="delete-form" action="<?= $BASE_URL ?>/config/process.php" method="POST">
               <input type="hidden" name="type" value="delete">
               <input type="hidden" name="cpf" value="<?= $employ["cpf"]?>">

@@ -4,7 +4,6 @@ include_once("./config/connection.php");
 include_once("./config/url.php");
 
 
-
 //Se tiver nenhum dado, não entrará nesse if
   if(strlen($_POST['cpf']) != 0 && $_POST['password'] != 0){
 
@@ -32,6 +31,13 @@ include_once("./config/url.php");
 
       //Verifica se buscou uma linha do banco de dados
       $quant = $stmt->rowCount();
+/*
+      //Verifica se é administrador
+      $stmt = $conn->prepare("SELECT * FROM employees WHERE cpf = :cpf");
+      $stmt->bindParam(":cpf", $cpf);
+      $stmt->execute();
+  */    
+
 
       //Aqui começa a session(login)
       if($quant === 1){

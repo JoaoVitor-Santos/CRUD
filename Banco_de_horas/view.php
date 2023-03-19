@@ -16,8 +16,20 @@
         <p><?= $employ['cpf'] ?></p>
       </div>
       <div id="view-group">
+        <label for="name"><strong>Telefone:</strong></label>
+        <p><?= $employ['phone'] ?></p>
+      </div>
+      <div id="view-group">
         <label for="name"><strong>Horas trabalhadas:</strong></label>
         <p><?= $employ['hours'] ?></p>
+      </div>
+      <div id="view-group">
+        <label for="name"><strong>cargo:</strong></label>
+        <p><?= $employ['employ'] ?></p>
+      </div>
+      <div id="view-group">
+        <label for="name"><strong>Salário:</strong></label>
+        <p><?= $employ['wage'] ?></p>
       </div>
   </div>
   
