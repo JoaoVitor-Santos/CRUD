@@ -23,7 +23,7 @@
     <h1 id="main-tittle">Acesse seu pontuário</h1>
 
 
-
+    <div id="login-div">
     <form action="" method = "POST">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">CPF</label>
@@ -35,7 +35,8 @@
     <input type="password" class="form-control" id="exampleInputPassword1" name="password">
   </div>
   <button type="submit" class="btn btn-dark">entrar</button>
-</form>
+  </form>
+  </div>
     
 </body>
 </html>
