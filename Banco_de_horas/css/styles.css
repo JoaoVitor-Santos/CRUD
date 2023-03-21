@@ -23,7 +23,8 @@ body{
 /* CREATE */
 #create-form,
 #edit-form,
-#view{
+#view,
+#login-div{
     max-width: 500px;
     margin: 0 auto;
 }

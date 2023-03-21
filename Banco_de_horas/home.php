@@ -39,7 +39,7 @@
     </table>
 
 <?php else: ?> 
-  <h1 id="main-tittle">entrou no Funcionários</h1>
+  <h1 id="main-tittle">Suas informações</h1>
   <!--Funcionários -->
   <table class="table" id="employ-table">
       <thead>
