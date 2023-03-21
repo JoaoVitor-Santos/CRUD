@@ -34,7 +34,7 @@
     <label for="exampleInputPassword1" class="form-label">senha</label>
     <input type="password" class="form-control" id="exampleInputPassword1" name="password">
   </div>
-  <button type="submit" class="btn btn-primary">entrar</button>
+  <button type="submit" class="btn btn-dark">entrar</button>
 </form>
     
 </body>

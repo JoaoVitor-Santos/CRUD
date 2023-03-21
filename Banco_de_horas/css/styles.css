@@ -1,5 +1,13 @@
+body{
+    background-color: #c8c9b5;
+}
+
 .navbar-brand img{
     max-width: 50px;
+}
+
+#logout-link{
+    margin-right: 10px;
 }
 
 #main-tittle{
@@ -43,4 +51,14 @@
 }
 
 
+#button-pont{
+    margin: 100px;
+    display: block;
+}
 
+#button-hours{
+    display: block;
+    font-size: 30px;
+    height: 100px;
+    margin: 0 auto;
+}

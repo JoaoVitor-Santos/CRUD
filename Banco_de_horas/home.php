@@ -4,10 +4,9 @@
   
 
 ?>
+<?php if($_SESSION['employ'] === "administrador"): ?>
 
   <h1 id="main-tittle">Funcionários</h1>
-
-  <?php if(count($employees) > 0): ?>
 
     <table class="table" id="employ-table">
       <thead>
@@ -38,17 +37,41 @@
         <?php endforeach;  ?>  
       </tbody>
     </table>
-  
 
-  <?php else: ?>
-    <p>Ainda não há funcionários, <a href="<?= $BASE_URL ?>/create.php">clique aqui para adicionar</a></p>
-  <?php endif; ?>  
+<?php else: ?> 
+  <h1 id="main-tittle">entrou no Funcionários</h1>
+  <!--Funcionários -->
+  <table class="table" id="employ-table">
+      <thead>
+      <tr>
+        <th scope="col">cpf</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Horas trabalhadas</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td scope="row" class="col-id"><?= $employ["cpf"]?></td>
+            <td scope="row"><?= $employ["name"]?></td>
+            <td scope="row"><?= $employ["hours"]?></td>
+          </tr>
+      </tbody>
+    </table>
+
+    <!-- Botão do pontuário -->
+    <div id="button-pont">
+    <form class="hours-form" action="<?= $BASE_URL ?>/config/process.php" method="POST">
+    <input type="hidden" name="type" value="hours">
+    <button type="submit" class="btn btn-dark" id="button-hours">Começar o trabalho</button>
+    </form>
+    </div>
+<?php endif; ?> 
 
   
 
 
 <?php
-
 
   include_once('templates/footer.php');
 

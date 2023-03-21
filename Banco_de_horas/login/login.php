@@ -31,12 +31,6 @@ include_once("./config/url.php");
 
       //Verifica se buscou uma linha do banco de dados
       $quant = $stmt->rowCount();
-/*
-      //Verifica se é administrador
-      $stmt = $conn->prepare("SELECT * FROM employees WHERE cpf = :cpf");
-      $stmt->bindParam(":cpf", $cpf);
-      $stmt->execute();
-  */    
 
 
       //Aqui começa a session(login)
@@ -49,11 +43,24 @@ include_once("./config/url.php");
             session_start();
         }   
 
-        $_SESSION['user'] = $user['cpf'];
+
+
+      //Coleta os dados do usuário no banco
+      $stmt = $conn->prepare("SELECT * FROM employees WHERE cpf = :cpf");
+      $stmt->bindParam(":cpf", $cpf);
+      $stmt->execute();        
+      $employ = $stmt->fetch();
+      $_SESSION['cpf'] = $employ['cpf'];
+      $_SESSION['employ'] = $employ['employ'];
+      $_SESSION['name'] = $employ['name'];
+      $_SESSION['datestart'] = $employ['datestart'];
+      $_SESSION['wage'] = $employ['wage'];
+      $_SESSION['hours'] = $employ['hours'];
+      $_SESSION['phone'] = $employ['phone'];
+
 
        //Volta para a HOME
      header("Location:". $BASE_URL . "./home.php" );
-     echo "veio no lugar certo";
 
 
       }else{

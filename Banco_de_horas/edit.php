@@ -13,7 +13,11 @@
     <label for="name">Nome do Funcionário:</label>
     <input type="text" class="form-control" id="name" name="name" placeholder="<?= $employ['name'] ?>" required>
   </div>
-  <button type="submit" id="btn-create" class="btn btn-primary">Atualizar</button>
+  <div class="form-group">
+    <label for="name"> Novo telefone:</label>
+    <input type="text" class="form-control" id="phone" name="phone" placeholder="<?= $employ['phone'] ?>" required>
+  </div>
+  <button type="submit" id="btn-create" class="btn btn-dark">Atualizar</button>
   </form>
 
 

@@ -8,8 +8,12 @@
   $data = $_POST;
 
 
+  //ADMINISTRADOR
+if($_SESSION["employ"] === "administrador"){
+
+  //ADICIONAR FUNCIONÁRIO
   if(!empty($data)){
-    if($data['type'] === 'create'){
+    if($data['type'] === 'create' && $_SESSION['employ'] === "administrador"){
 
       $name = $data['name'];
       $hours = $data['hours'];
@@ -33,8 +37,7 @@
      
       $stmt->execute();
 
-      //login
-      
+      //dados login
       $stmt = $conn->prepare("INSERT INTO users(cpf, password) VALUES (:cpf, :password)");
 
        
@@ -43,6 +46,7 @@
      
       $stmt->execute();
 
+      //Editar funcionário
     }elseif(($data['type'] === 'edit')){
 
      $name = $data['name'];
@@ -55,7 +59,8 @@
 
      $stmt->execute();
 
-    }elseif(($data['type'] === 'delete')){
+     //Deletar funcionário
+    }elseif(($data['type'] === 'delete' && $_SESSION['employ'] === "administrador")){
 
       $cpf = $data["cpf"];
 
@@ -109,4 +114,39 @@
  }
 
  }
+
+ //Funcionários
+} else{
+
+  $cpf = $_SESSION["cpf"];
+
+  $query = "SELECT * FROM employees WHERE cpf = :cpf";
+
+   $stmt = $conn->prepare($query);
+
+   $stmt->bindParam(":cpf", $cpf);
+
+   $stmt->execute();
+
+   $employ = $stmt->fetch();
+
+   //Editar os próprios dados
+   if(!empty($data)){
+   if(($data['type'] === 'edit')){
+
+     $name = $data['name'];
+     $phone = $data['phone'];
+      
+     $stmt = $conn->prepare("UPDATE employees SET name = :name, phone = :phone WHERE cpf = :cpf");
+
+     $stmt->bindParam(":name", $name);
+     $stmt->bindParam(":cpf", $cpf);
+     $stmt->bindParam(":phone", $phone);
+
+     $stmt->execute();
+
+     header("Location:". $BASE_URL . "../home.php" );
+   }
+  }
+}
   

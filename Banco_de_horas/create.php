@@ -34,7 +34,7 @@
     <label for="name">senha de login:</label>
     <input type="text" class="form-control" id="name" name="password" placeholder="Digite o salário" required>
   </div>
-  <button type="submit" id="btn-create" class="btn btn-primary">Cadastrar</button>
+  <button type="submit" id="btn-create" class="btn btn-dark">Cadastrar</button>
   </form>
 
 
