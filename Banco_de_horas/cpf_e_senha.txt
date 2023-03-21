@@ -1,7 +1,13 @@
-funcion√°rio
+funcion·rio
+
 cpf = 12345678910
+
 senha = 123456
 
+
+
 Administrador
+
 cpf = 12345678911
+
 senha =  12
