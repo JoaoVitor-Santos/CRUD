@@ -5,7 +5,7 @@ include_once("./config/url.php");
 
 
 //Se tiver nenhum dado, não entrará nesse if
-  if(strlen($_POST['cpf']) != 0 && $_POST['password'] != 0){
+  if(!empty($_POST)){
 
     //caso entre, aqui será feita a conexão no banco
     $cpf = $_POST['cpf'];
@@ -67,6 +67,4 @@ include_once("./config/url.php");
         echo "Erro nos dados!";
       }
 
-  } else{
-    echo "Preencha corretamente os dados";
-  } 
+  }

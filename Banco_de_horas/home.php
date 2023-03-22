@@ -63,7 +63,8 @@
     <div id="button-pont">
     <form class="hours-form" action="<?= $BASE_URL ?>/config/process.php" method="POST">
     <input type="hidden" name="type" value="hours">
-    <button type="submit" class="btn btn-dark" id="button-hours">Começar o trabalho</button>
+    <input type="hidden" name="type" value="hours">
+    <button type="submit" class="btn btn-dark" id="button-hours" name="btn-hours"><?php if($_SESSION['contador'] === 1) :?>Encerrar expediente <?php else: ?>Começar o expediente<?php endif; ?></button>
     </form>
     </div>
 <?php endif; ?> 

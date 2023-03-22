@@ -130,6 +130,12 @@ if($_SESSION["employ"] === "administrador"){
 
    $employ = $stmt->fetch();
 
+
+   if (!isset($_SESSION['contador'])) {
+    // Se a variável de contagem não existir, cria ela e inicializa com zero
+    $_SESSION['contador'] = 0;
+  }
+
    //Editar os próprios dados
    if(!empty($data)){
    if(($data['type'] === 'edit')){
@@ -145,8 +151,38 @@ if($_SESSION["employ"] === "administrador"){
 
      $stmt->execute();
 
-     header("Location:". $BASE_URL . "../home.php" );
    }
+
+   //Pontuario de horas
+
+    if(($data['type'] === 'hours')) {
+      
+      $time1 = new DateTime();
+      $_SESSION['contador']++;
+
+      if($_SESSION['contador'] === 2){
+      $time2 = new DateTime();
+      $temp = $time1->diff($time2);
+      $diff = $temp->h + ($temp->i / 60) + ($temp->s / 3600);
+      
+      //Soma o horário ao banco de dados
+      $stmt = $conn->prepare("UPDATE employees SET hours = hours + :diff WHERE cpf = :cpf");
+  
+      $stmt->bindParam(":cpf", $cpf);
+      $stmt->bindParam(":diff", $diff);
+  
+      $stmt->execute();
+
+      echo "entrou";
+
+      $_SESSION['contador'] = 0;
+      }
+  
+      
+    }
+
+    header("Location:". $BASE_URL . "../home.php" );
   }
+
 }
   
