@@ -38,6 +38,7 @@
             <div class="navbar-nav">
                 <a class="nav-link" id = "home-link" href="<?= $BASE_URL ?>/home.php">Funcionários</a>
                 <a class="nav-link" id = "home-link" href="<?= $BASE_URL ?>/create.php">Adicionar funcionário</a>
+                <a class="nav-link" id = "logout-link" href="<?= $BASE_URL ?>/login/logout.php">sair</a>
             </div>
 
             <?php else: ?> 
